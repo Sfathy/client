@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default({comments}) => {
    
     const renderedComments = comments.map(comment =>{

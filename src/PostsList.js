@@ -3,12 +3,21 @@ import axios from 'axios';
 import CommentCreate from './CommentCreate';
 import CommentsList from './CommentsList';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
     const [posts, setPosts] = useState({});
     const fetchPosts = async () => {
-        const res = await axios.get('http://localhost:4003/posts');
+        try{
+        console.log('get the posts');
+        const res = await axios.get('https://posts.com/posts');
         
         setPosts (res.data);
+        }
+        catch(err){
+            console.error(err);
+            
+        }
+        
     };
     useEffect(() => {
         fetchPosts();
